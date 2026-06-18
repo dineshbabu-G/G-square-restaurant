@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G Square Restaurant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1c1c1c;
+      color: white;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #3b2a1a;
+      padding: 10px 20px;
+    }
+    .navbar h1 { color: white; }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .navbar ul li a:hover { color: red; }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: #2a1a0f;
+    }
+    .hero h2 { font-size: 2em; margin-bottom: 10px; }
+    section { padding: 40px 20px; }
+    h2 { color: #f5f5f5; }
+    .menu-category, .combos, .reviews { margin-bottom: 30px; }
+    .card {
+      background: #2a1a0f;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: scale(1.05); }
+    .price { color: red; font-weight: bold; float: right; }
+    footer {
+      background: #3b2a1a;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    form input, form select, form textarea, form button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    form button {
+      background: red;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover { background: #b30000; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <h1 class="logo">G Square Restaurant</h1>
+    <ul>
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('menu')">Menu</a></li>
+      <li><a href="#" onclick="showPage('combos')">Combos</a></li>
+      <li><a href="#" onclick="showPage('reviews')">Reviews</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Page -->
+  <div id="home" class="page">
+    <header class="hero">
+      <h2>Taste the Tradition, Feel the Excellence</h2>
+      <p>Welcome to G Square Restaurant – Where taste meets tradition</p>
+    </header>
+    <section class="about">
+      <h2>About Us</h2>
+      <p><strong>Owners:</strong> Gowtham & Gowshic (Twin Brothers)</p>
+      <p><strong>Established:</strong> 2008</p>
+      <p>A family-owned restaurant started by twin brothers, known for delicious food, hygiene, and customer satisfaction.</p>
+    </section>
+  </div>
+
+  <!-- Menu Page -->
+  <div id="menu" class="page hidden">
+    <section class="menu">
+      <h2>Our Menu</h2>
+      <div class="menu-category">
+        <h3>Starters</h3>
+        <div class="card">Paneer Tikka <span class="price">₹150</span></div>
+        <div class="card">Chicken 65 <span class="price">₹180</span></div>
+      </div>
+      <div class="menu-category">
+        <h3>Main Course</h3>
+        <div class="card">Butter Chicken <span class="price">₹250</span></div>
+        <div class="card">Veg Curry <span class="price">₹200</span></div>
+      </div>
+      <div class="menu-category">
+        <h3>Biryani</h3>
+        <div class="card">Chicken Biryani <span class="price">₹220</span></div>
+        <div class="card">Veg Biryani <span class="price">₹180</span></div>
+      </div>
+      <div class="menu-category">
+        <h3>Desserts</h3>
+        <div class="card">Gulab Jamun <span class="price">₹80</span></div>
+        <div class="card">Ice Cream <span class="price">₹100</span></div>
+      </div>
+      <div class="menu-category">
+        <h3>Beverages</h3>
+        <div class="card">Fresh Lime Soda <span class="price">₹60</span></div>
+        <div class="card">Cold Coffee <span class="price">₹120</span></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Combos Page -->
+  <div id="combos" class="page hidden">
+    <section class="combos">
+      <h2>Best Value Offers</h2>
+      <div class="card">Family Combo – <span class="price">₹499</span><p>Perfect for 4 members</p></div>
+      <div class="card">Couple Combo – <span class="price">₹299</span><p>Ideal for 2 people</p></div>
+      <div class="card">Student Combo – <span class="price">₹199</span><p>Budget-friendly meal</p></div>
+    </section>
+  </div>
+
+  <!-- Reviews Page -->
+  <div id="reviews" class="page hidden">
+    <section class="reviews">
+      <h2>Customer Reviews</h2>
+      <p>⭐⭐⭐⭐⭐ “Excellent taste and service!” – Arun</p>
+      <p>⭐⭐⭐⭐⭐ “Best restaurant in town!” – Priya</p>
+      <p>⭐⭐⭐⭐⭐ “Affordable and delicious food.” – Karthik</p>
+
+      <h3>Leave Your Feedback</h3>
+      <form id="feedbackForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <select id="rating">
+          <option value="5">⭐⭐⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="1">⭐</option>
+        </select>
+        <textarea id="comment" placeholder="Your Comment" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="feedbackList"></div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>📞 Contact: +91 98765 43210</p>
+    <p>📍 Address: Tiruppur, Tamil Nadu, India</p>
+    <p>🕒 Opening Hours: 10 AM – 11 PM</p>
+  </footer>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.add('hidden');
+      });
+      document.getElementById(pageId).classList.remove('hidden');
+    }
+
+    document.getElementById('feedbackForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const rating = document.getElementById('rating').value;
+      const comment = document.getElementById('comment').value;
+      const feedbackList = document.getElementById('feedbackList');
+      const newFeedback = document.createElement('p');
+      newFeedback.textContent = `${'⭐'.repeat(rating)} "${comment}" – ${name}`;
+      feedbackList.appendChild(newFeedback);
+      this.reset();
+    });
+  </script>
+</body>
+</html>
